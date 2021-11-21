@@ -5,7 +5,8 @@ echo "${#ExecuteFiles[@]}"
 echo "${ExecuteFiles[@]}"
 for file in "${ExecuteFiles[@]}"; do
 echo "in Loop"
-echo "${ExecuteFiles[file]}"
+echo "${ExecuteFiles[$file]}"
+echo "out Loop"
 done
 Fallback_Scenario=$(cat env_Instruction.json | jq '.[].ExecuteFiles[].fallback')
 echo "${Fallback_Scenario[@]}"
