@@ -1,6 +1,6 @@
 #!/bin/bash
 echo "hello!"
-if [[ $(cat env_Instruction.json | jq '.[].status') = "EXECUTE" ]]
+if [[ $(cat env_Instruction.json | jq '.[].status') != "EXECUTE" ]]
 then
 for row in $(cat env_Instruction.json | jq -r '.[].ExecuteFiles[] | @base64'); do
    echo "in Loop"
