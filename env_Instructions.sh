@@ -8,8 +8,7 @@ then
       echo ${row} | base64 --decode | jq -r ${1}
      }
      echo $(_jq '.filePath')
-      echo ${row}'.filePath'| base64 --decode
-      echo "out Loop" 
+     echo "out Loop" 
    done
 else
   echo "File Status = $(cat env_Instruction.json | jq -r '.[].status')" 
