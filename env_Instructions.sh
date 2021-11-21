@@ -1,6 +1,6 @@
 #!/bin/bash
 echo "hello!"
-ExecuteFiles=$(cat env_Instruction.json | jq '.[].ExecuteFiles')
+ExecuteFiles=$(cat env_Instruction.json | jq '.[].ExecuteFiles[]')
 #echo "${#ExecuteFiles[@]}"
 #echo "${ExecuteFiles[@]}"
 for ((i=0; i<=${#ExecuteFiles[@]}; i++)); do
