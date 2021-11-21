@@ -16,6 +16,7 @@ then
          echo "cmd failed"
       else
          echo "cmd success"
+      fi
    done
 else
    echo "Status = $(cat Env_Instruction.json | jq -r '.[].status')"
