@@ -1,6 +1,5 @@
 #!/bin/bash
 ENV="dev"
-echo $(ENV_Env_Instruction.json)
 echo "Status = $(cat $ENV_Env_Instruction.json | jq -r '.[].status')"
 if [[ "$(cat env_Instruction.json | jq -r '.[].status')" == "EXECUTE" ]]
 then
