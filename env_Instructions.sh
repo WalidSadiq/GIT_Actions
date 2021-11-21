@@ -14,5 +14,5 @@ then
      echo ${mvn_cmd} 
    done
 else
-  echo "File Status = $(cat env_Instruction.json | jq -r '.[].status')"
+  echo "FileStatus = $(cat env_Instruction.json | jq -r '.[].status')"
 fi
