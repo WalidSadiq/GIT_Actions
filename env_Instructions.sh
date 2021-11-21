@@ -10,7 +10,7 @@ then
      echo $(_jq '.filePath')
      filePathArray=($(echo $(_jq '.filePath') | tr "/" " "))
      echo "${#filePathArray[@]}"
-     echo "mvn apigee-config: ${filePathArray[${#filePathArray[@]}-1]} -P$ENV -Dusername=$machine_apigeeUsername -Dpassword=$machine_apigeePassword -Dorg=$ORG -Dapigee.config.options=$(echo $(_jq '.action')"
+     echo "mvn apigee-config: ${filePathArray[${#filePathArray[@]}-1]} -P$ENV -Dusername=$machine_apigeeUsername -Dpassword=$machine_apigeePassword -Dorg=$ORG -Dapigee.config.options=$(_jq '.action')"
    done
 else
    echo "FileStatusss"
