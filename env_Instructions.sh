@@ -5,6 +5,7 @@ echo "${#ExecuteFiles[@]}"
 echo "${ExecuteFiles[@]}"
 for file in "${ExecuteFiles[@]}"; do
 echo "in Loop"
+echo "file = $file"
 echo "${ExecuteFiles[$file]}"
 echo "out Loop"
 done
