@@ -6,7 +6,7 @@ then
    for row in $(cat env_Instruction.json | jq -r '.[].ExecuteFiles[] | @base64'); do
       echo "in Loop"
       echo ${row}
-      echo ${row} | base64 --decode | jq -r ${0}
+      echo ${row} | base64 --decode | jq -r ${2}
       echo "out Loop"
    done
 else
