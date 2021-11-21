@@ -1,7 +1,7 @@
 #!/bin/bash
 echo "hello!"
 echo "Status = $(cat env_Instruction.json | jq '.[].status')"
-if [[ $(cat env_Instruction.json | jq '.[].status') = "EXECUTE" ]]
+if [[ $(cat env_Instruction.json | jq '.[].status') == "EXECUTE" ]]
 then
    for row in $(cat env_Instruction.json | jq -r '.[].ExecuteFiles[] | @base64'); do
       echo "in Loop"
@@ -10,7 +10,7 @@ then
       echo "out Loop"
    done
 else
-  echo "File Status = $(cat env_Instruction.json | jq '.[].status')" 
+  echo "File Status = $(cat env_Instruction.json | jq -r '.[].status')" 
 fi
 #Fallback_Scenario=$(cat env_Instruction.json | jq '.[].ExecuteFiles[].fallback')
 #echo "${Fallback_Scenario[@]}"
