@@ -1,10 +1,10 @@
 #!/bin/bash
 
 echo "hello!"
-ExecuteFiles=( $(jq '.[].ExecuteFiles[]' json) )
+ExecuteFiles=$(cat env_Instruction.json | jq '.[].ExecuteFiles[]')
 echo "${ExecuteFiles[@]}"
 
-Fallback_Scenario=( $(jq '.[].ExecuteFiles[].fallback' json) )
+Fallback_Scenario=$(cat env_Instruction.json | jq '.[].ExecuteFiles[].fallback')
 echo "${Fallback_Scenario[@]}"
 
 Status=.[].status
