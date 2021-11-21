@@ -1,13 +1,13 @@
 #!/bin/bash
 echo "hello!"
-ExecuteFiles=$(cat env_Instruction.json | jq '.[].ExecuteFiles[]')
+ExecuteFiles=$(cat env_Instruction.json | jq -r '.[].ExecuteFiles[]')
 #echo "${#ExecuteFiles[@]}"
 #echo "${ExecuteFiles[@]}"
-for ((i=0; i<=${#ExecuteFiles[]}; i++)); do
-   echo "$i"
+for row in "${#ExecuteFiles[@]}"; do
+   echo "$row"
    echo "in Loop"
    #echo "file = $file"
-   echo "${ExecuteFiles[$i]}"
+   echo "${ExecuteFiles[$row]}"
    echo "out Loop"
 done
 #for i in "${#ExecuteFiles[@]}"; do
