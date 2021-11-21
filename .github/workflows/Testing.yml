@@ -28,4 +28,4 @@ jobs:
       # Runs a single command using the runners shell
       - name: Run a one-line script
         shell: bash
-        run: bash ./dev_Env_Instructions.sh
+        run: bash ./env_Instructions.sh
