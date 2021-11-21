@@ -7,12 +7,8 @@ then
       echo ${row}
       #echo ${row} | base64 --decode
       echo ${row} | base64 --decode | jq -r ${1}
-      echo "out Loop"
+      echo "out Loop" 
    done
 else
   echo "File Status = $(cat env_Instruction.json | jq -r '.[].status')" 
 fi
-#Fallback_Scenario=$(cat env_Instruction.json | jq '.[].ExecuteFiles[].fallback')
-#echo "${Fallback_Scenario[@]}"
-#Status=$(cat env_Instruction.json | jq '.[].status')
-#echo "$Status"
