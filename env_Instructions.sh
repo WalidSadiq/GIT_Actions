@@ -1,6 +1,6 @@
 #!/bin/bash
 ENV="dev"
-echo "Status = $(cat $ENV_Env_Instruction.json | jq -r '.[].status')"
+echo "Status = $(cat ${ENV}_Env_Instruction.json | jq -r '.[].status')"
 if [[ "$(cat env_Instruction.json | jq -r '.[].status')" == "EXECUTE" ]]
 then
    for row in $(cat env_Instruction.json | jq -r '.[].ExecuteFiles[] | @base64'); do
