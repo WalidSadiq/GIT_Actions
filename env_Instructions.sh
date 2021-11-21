@@ -12,7 +12,7 @@ then
      echo "${#filePathArray[@]}"
      echo "mvn apigee-config:${filePathArray[${#filePathArray[@]}-1]} -P$ENV -Dusername=$machine_apigeeUsername -Dpassword=$machine_apigeePassword -Dorg=$ORG -Dapigee.config.options=$(_jq '.action')"
      echo "$?"
-     if [ "$?" -ne 0 ]
+     if [ "$?" -ne 1 ]
      then
      echo "Fallback = $(cat Env_Instruction.json | jq -r '.[].$(_jq '.fallback')[] | @base64')"
         echo "mvn apigee-config:${filePathArray[${#filePathArray[@]}-1]} -P$ENV -Dusername=$machine_apigeeUsername -Dpassword=$machine_apigeePassword -Dorg=$ORG -Dapigee.config.options=$(_jq '.action')"
