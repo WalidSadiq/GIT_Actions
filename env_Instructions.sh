@@ -11,12 +11,13 @@ then
      filePathArray=($(echo $(_jq '.filePath') | tr "/" " "))
      echo "${#filePathArray[@]}"
      echo "mvn apigee-config:${filePathArray[${#filePathArray[@]}-1]} -P$ENV -Dusername=$machine_apigeeUsername -Dpassword=$machine_apigeePassword -Dorg=$ORG -Dapigee.config.options=$(_jq '.action')"
-      if [ "$?" -ne 0 ]
-      then
-         echo "Mvn Cmd failed"
-      else
-         echo "Mvn Cmd successfully executed"
-      fi
+     echo "$?"
+     if [ "$?" -ne 0 ]
+     then
+        echo "Mvn Cmd failed"
+     else
+        echo "Mvn Cmd successfully executed"
+     fi
    done
 else
    echo "Status = $(cat Env_Instruction.json | jq -r '.[].status')"
