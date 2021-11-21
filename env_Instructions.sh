@@ -8,7 +8,7 @@ then
       echo ${row} | base64 --decode | jq -r ${1}
      }
      echo $(_jq '.filePath')
-     filePathArray=("echo $(_jq '.filePath') | tr '/' ' '")
+     filePathArray=($(echo $(_jq '.filePath') | tr "/" " "))
      echo "${#filePathArray[@]}"
      #mvn_cmd = "echo 'mvn apigee-config:'"
      echo ${filePathArray[@]}
