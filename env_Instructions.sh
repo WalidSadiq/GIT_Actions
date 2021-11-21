@@ -12,7 +12,7 @@ then
      echo "${#filePathArray[@]}"
      #mvn_cmd = "echo 'mvn apigee-config:'"
      echo ${filePathArray[1]}
-     echo "mvn apigee-config: ${filePathArray[${#filePathArray[@]}]}"
+     echo "mvn apigee-config: ${filePathArray[${#filePathArray[@]}-1]}"
    done
 else
    echo "FileStatusss"
