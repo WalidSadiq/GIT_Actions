@@ -7,7 +7,7 @@ then
       #echo ${row}
       #echo ${row} | base64 --decode
       echo ${row} | base64 --decode | jq -r ${1}
-      echo ${row}.'filePath'
+      echo ${row}.'filePath'| base64 --decode
       echo "out Loop" 
    done
 else
