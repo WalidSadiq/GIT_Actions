@@ -3,7 +3,7 @@ echo "hello!"
 ExecuteFiles=$(cat env_Instruction.json | jq '.[].ExecuteFiles[]')
 #echo "${#ExecuteFiles[@]}"
 #echo "${ExecuteFiles[@]}"
-for ((i=0; i<=${#ExecuteFiles[@]}; i++)); do
+for ((i=0; i<=${#ExecuteFiles[]}; i++)); do
    echo "$i"
    echo "in Loop"
    #echo "file = $file"
