@@ -8,6 +8,8 @@ then
       echo ${row} | base64 --decode | jq -r ${1}
      }
      echo $(_jq '.filePath')
+     myarray=("echo $(_jq '.filePath') | tr '/' ' '")
+     echo "${#myarray[@]}"
      echo "out Loop" 
    done
 else
