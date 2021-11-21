@@ -11,7 +11,7 @@ then
      filePathArray=($(echo $(_jq '.filePath') | tr "/" " "))
      echo "${#filePathArray[@]}"
      mvn_cmd = "mvn apigee-config: ${filePathArray[${#filePathArray[@]}-1]}"
-     echo "$mvn_cmd"
+     echo $mvn_cmd
    done
 else
    echo "FileStatusss"
