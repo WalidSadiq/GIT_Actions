@@ -4,8 +4,6 @@ if [[ "$(cat env_Instruction.json | jq -r '.[].status')" == "EXECUTE" ]]
 then
    for row in $(cat env_Instruction.json | jq -r '.[].ExecuteFiles[] | @base64'); do
       echo "in Loop"
-      #echo ${row}
-      #echo ${row} | base64 --decode
       echo ${row} | base64 --decode | jq -r ${1}
       echo ${row}.'filePath'| base64 --decode
       echo "out Loop" 
