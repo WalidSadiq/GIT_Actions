@@ -8,9 +8,10 @@ then
       echo ${row} | base64 --decode | jq -r ${1}
      }
      echo $(_jq '.filePath')
-     myarray=("echo $(_jq '.filePath') | tr '/' ' '")
-     echo "${#myarray[@]}"
-     echo "out Loop" 
+     filePathArray=("echo $(_jq '.filePath') | tr '/' ' '")
+     echo "${#filePathArray[@]}"
+     mvn_cmd = "mvn apigee-config: ${filePathArray[${#filePathArray[@]}]"
+     echo ${mvn_cmd} 
    done
 else
   echo "File Status = $(cat env_Instruction.json | jq -r '.[].status')" 
