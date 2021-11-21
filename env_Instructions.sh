@@ -1,7 +1,7 @@
 #!/bin/bash
 echo "hello!"
 echo "Status = $(cat env_Instruction.json | jq -r '.[].status')"
-status = ${(cat env_Instruction.json | jq -r '.[].status')};
+status = $(cat env_Instruction.json | jq -r '.[].status');
 echo  ${status}
 if [${status} == "EXECUTE"]
 then
