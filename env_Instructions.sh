@@ -15,11 +15,11 @@ then
      if [ "$?" -ne 1 ]
      then
         echo "Fallback script started executing"
-        eval "fallback=\$(cat Env_Instruction.json | jq -r '.[].$(_jq '.fallback')[]')"
+        eval "fallback=\$(cat Env_Instruction.json | jq -r '.[].$(_jq '.fallback')[] | @base64')"
         echo "Fallback = ${fallback}"
-        auth=$(echo ${fallback}|base64);
-        echo "auth = ${auth}"
-        for row in ${auth}; do
+        #auth=$(echo ${fallback}|base64);
+        #echo "auth = ${fallback}"
+        for row in ${fallback}; do
             echo "in fallback Loop"
             _jq() {
             echo ${row}| base64 --decode | jq -r ${1}
