@@ -16,7 +16,7 @@ then
      then
         fallback = $(_jq '.fallback')
         echo "Fallback script started executing"
-        echo "Fallback = $(cat Env_Instruction.json | jq -r '.[].'${fallback}' | @base64')" #fallback_Scenario_1
+        echo "Fallback = $(cat Env_Instruction.json | jq -r '.[]."${fallback}" | @base64')" #fallback_Scenario_1
         echo "mvn apigee-config:${filePathArray[${#filePathArray[@]}-1]} -P$ENV -Dusername=$machine_apigeeUsername -Dpassword=$machine_apigeePassword -Dorg=$ORG -Dapigee.config.options=$(_jq '.action')"
      else
         echo "Mvn Cmd successfully executed"
