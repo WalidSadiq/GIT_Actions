@@ -8,9 +8,9 @@ then
       echo ${row} | base64 --decode | jq -r ${1}
      }
      echo $(_jq '.filePath')
-     #filePathArray=($(echo $(_jq '.filePath') | tr "/" " "))
-     #echo "${#filePathArray[@]}"
-     echo "mvn apigee-config:$(_jq '.filePath') -P$ENV -Dusername=$machine_apigeeUsername -Dpassword=$machine_apigeePassword -Dorg=$ORG -Dapigee.config.options=$(_jq '.action')"
+     filePathArray=($(echo $(_jq '.filePath') | tr "/" " "))
+     echo "${#filePathArray[@]}"
+     echo "mvn apigee-config:${filePathArray[${#filePathArray[@]}-1]} -P$ENV -Dusername=$machine_apigeeUsername -Dpassword=$machine_apigeePassword -Dorg=$ORG -Dapigee.config.options=$(_jq '.action')"
      echo "$?"
      if [ "$?" -ne 1 ]
      then
@@ -25,7 +25,7 @@ then
             echo ${row}| base64 --decode | jq -r ${1}
             }
             echo $(_jq '.filePath')
-            echo "mvn apigee-config:$(_jq '.filePath') -P$ENV -Dusername=$machine_apigeeUsername -Dpassword=$machine_apigeePassword -Dorg=$ORG -Dapigee.config.options=$(_jq '.action')"  
+            echo "mvn apigee-config:${filePathArray[${#filePathArray[@]}-1]} -P$ENV -Dusername=$machine_apigeeUsername -Dpassword=$machine_apigeePassword -Dorg=$ORG -Dapigee.config.options=$(_jq '.action')"  
         done
      else
         echo "Mvn Cmd successfully executed"
