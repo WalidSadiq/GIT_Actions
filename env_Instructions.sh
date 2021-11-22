@@ -18,10 +18,14 @@ then
         echo $(_jq '.fallback')
         echo "Fallback script started executing"
         #Fallbacks = "$(cat Env_Instruction.json | jq -r '.[].\${!(_jq '.fallback')}')"
-        eval "echo \$(cat Env_Instruction.json | jq -r '.[].$(_jq '.fallback')')"
+        eval "value=\$(cat Env_Instruction.json | jq -r '.[].$(_jq '.fallback')')"
+        echo "value = ${value}"
         #eval "value=\$(cat Env_Instruction.json | jq -r '.[].\${!(_jq '.fallback')}')"
         #eval ${Fallbacks}
-        echo "Fallback = $(cat Env_Instruction.json | jq -r '.[].$(_jq '.fallback')')"
+        #echo \$(cat Env_Instruction.json | jq -r '.[].${!(_jq '.fallback')}')
+        Fallback = "\$(cat Env_Instruction.json | jq -r '.[].$(_jq '.fallback')')"
+        echo ${Fallback}
+        
         for row in $(cat Env_Instruction.json | jq -r '.[]."${fallback}" | @base64'); do
             echo "in fallback Loop"
             _jq() {
