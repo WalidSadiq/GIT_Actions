@@ -20,7 +20,7 @@ then
         for row in ${fallback}; do
             echo "in fallback Loop"
             _jq() {
-            echo ${row} | jq -r ${1}
+            echo ${row}
             }
             echo $(_jq '.filePath')
             echo "mvn apigee-config:$(_jq '.filePath') -P$ENV -Dusername=$machine_apigeeUsername -Dpassword=$machine_apigeePassword -Dorg=$ORG -Dapigee.config.options=$(_jq '.action')"  
