@@ -17,7 +17,8 @@ then
         echo "Fallback script started executing"
         eval "fallback=\$(cat Env_Instruction.json | jq -r '.[].$(_jq '.fallback')')"
         echo "Fallback = ${fallback}"    
-        for row in ${fallback} | @base64'); do
+        #"${my_array[@]}"
+        for row in "${fallback[@]}" | @base64'); do
             echo "in fallback Loop"
             _jq() {
             echo ${row} | base64 --decode | jq -r ${1}
