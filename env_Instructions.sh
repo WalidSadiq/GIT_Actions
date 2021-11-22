@@ -19,8 +19,7 @@ then
         echo "Fallback = ${fallback}"
         auth=$(echo ${fallback} | base64);
         echo ${auth}
-        echo "${fallback} | @base64"
-        for row in "${fallback}" | @base64; do
+        for row in ${auth}; do
             echo "in fallback Loop"
             _jq() {
             echo ${row}
