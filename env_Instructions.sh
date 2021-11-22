@@ -16,7 +16,7 @@ then
      then
         echo "Fallback script started executing"
         eval "fallback=\$(cat Env_Instruction.json | jq -r '.[].$(_jq '.fallback')[]')"
-        #echo "Fallback = ${fallback}"
+        echo "Fallback = ${fallback}"
         auth=$(echo ${fallback}|base64);
         echo "auth = ${auth}"
         for row in ${auth}; do
