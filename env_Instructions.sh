@@ -16,12 +16,11 @@ then
      then
         echo "Fallback script started executing"
         eval "fallback=\$(cat Env_Instruction.json | jq -r '.[].$(_jq '.fallback')')"
-        echo "Fallback = ${fallback}"    
-        #"${my_array[@]}"
+        echo "Fallback = ${fallback}"
         for row in ${fallback}; do
             echo "in fallback Loop"
             _jq() {
-            echo ${row} | base64 --decode | jq -r ${1}
+            echo ${row} | jq -r ${1}
             }
             echo $(_jq '.filePath')
             echo "mvn apigee-config:$(_jq '.filePath') -P$ENV -Dusername=$machine_apigeeUsername -Dpassword=$machine_apigeePassword -Dorg=$ORG -Dapigee.config.options=$(_jq '.action')"  
