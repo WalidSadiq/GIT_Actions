@@ -27,6 +27,7 @@ then
             echo $(_jq '.filePath')
             echo "mvn apigee-config:${filePathArray[${#filePathArray[@]}-1]} -P$ENV -Dusername=$machine_apigeeUsername -Dpassword=$machine_apigeePassword -Dorg=$ORG -Dapigee.config.options=$(_jq '.action')"  
         done
+        break
      else
         echo "Mvn Cmd successfully executed"
      fi
