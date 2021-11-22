@@ -17,9 +17,9 @@ then
         fallback = $(_jq '.fallback')
         echo $(_jq '.fallback')
         echo "Fallback script started executing"
-        echo "Fallbacks = $(cat Env_Instruction.json | jq -r '.[]."$fallback"')"
+        echo "Fallbacks = $(cat Env_Instruction.json | jq -r '.[].Fallback_Scenario_1[]')"
         echo "Fallback = $(cat Env_Instruction.json | jq -r '.[]."${fallback}" | @base64')" #fallback_Scenario_1
-        for row in $(cat Env_Instruction.json | jq -r '.[]."${fallback}[]" | @base64'); do
+        for row in $(cat Env_Instruction.json | jq -r '.[]."${fallback}" | @base64'); do
             echo "in fallback Loop"
             _jq() {
             echo ${row} | base64 --decode | jq -r ${1}
