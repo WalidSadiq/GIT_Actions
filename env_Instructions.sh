@@ -14,10 +14,12 @@ then
      echo "$?"
      if [ "$?" -ne 1 ]
      then
-        fallback = $(_jq '.fallback')
+       #fallback = $(_jq '.fallback')
         echo $(_jq '.fallback')
         echo "Fallback script started executing"
-        echo "Fallbacks = $(cat Env_Instruction.json | jq -r '.[].(${fallback})')"
+        halftext = "$(cat Env_Instruction.json | jq -r '.[]."
+        fallback = "$(_jq '.fallback')')"
+        echo "Fallbacks = "${halftext} ${fallback}"
         echo "Fallback = $(cat Env_Instruction.json | jq -r '.[].,$fallback | @base64')" #fallback_Scenario_1
         for row in $(cat Env_Instruction.json | jq -r '.[]."${fallback}" | @base64'); do
             echo "in fallback Loop"
