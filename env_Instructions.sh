@@ -20,8 +20,8 @@ then
         #Fallbacks = "$(cat Env_Instruction.json | jq -r '.[].\${!(_jq '.fallback')}')"
         eval "echo \$(cat Env_Instruction.json | jq -r '.[].$(_jq '.fallback')')"
         #eval "value=\$(cat Env_Instruction.json | jq -r '.[].\${!(_jq '.fallback')}')"
-        £eval ${Fallbacks}
-        echo "Fallback = $(cat Env_Instruction.json | jq -r '.[].$fallback | @base64')"
+        #eval ${Fallbacks}
+        echo "Fallback = \$(cat Env_Instruction.json | jq -r '.[].$(_jq '.fallback')')"
         for row in $(cat Env_Instruction.json | jq -r '.[]."${fallback}" | @base64'); do
             echo "in fallback Loop"
             _jq() {
