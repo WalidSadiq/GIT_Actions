@@ -22,7 +22,7 @@ then
         for row in ${auth}; do
             echo "in fallback Loop"
             _jq() {
-            echo ${row}
+            echo ${row}| base64 --decode
             }
             echo $(_jq '.filePath')
             echo "mvn apigee-config:$(_jq '.filePath') -P$ENV -Dusername=$machine_apigeeUsername -Dpassword=$machine_apigeePassword -Dorg=$ORG -Dapigee.config.options=$(_jq '.action')"  
