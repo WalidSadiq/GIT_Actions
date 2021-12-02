@@ -32,3 +32,6 @@ jobs:
               cd ${{ github.workspace }}
               ls
               apigee2openapi -d ~ -l Drupal-Dummy_rev1_2021_12_02.zip -n Drupal-Dummy -e http://hiraaroob-fe1e7940-eval-test.apigee.net
+              cd /home/runner/
+              ls
+              cat Drupal-Dummy.json
