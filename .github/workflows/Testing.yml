@@ -28,7 +28,4 @@ jobs:
         run: sudo npm install -g apigee2openapi
       # Runs a single command using the runners shell
       - name: Run a one-line script
-        shell: bash
-        run: bash ./apigee2openapi.sh
-      - name: Policy-Code-Analysis
-        run: sudo npm install -g apigee2openapi
+        run: apigee2openapi -d ~/ -l ~/Drupal-Dummy_rev1_2021_12_02.zip -n Drupal-Dummy -e http://hiraaroob-fe1e7940-eval-test.apigee.net
